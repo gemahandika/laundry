@@ -6,7 +6,7 @@ Aplikasi sistem informasi berbasis web yang dirancang untuk mengelola operasiona
 
 | Dashboard                               | Login                           | Transaksi                               |
 | :-------------------------------------- | :------------------------------ | :-------------------------------------- |
-| ![Dashboard](screenshots/dashboard.png) | ![Login](screenshots/login.jpg) | ![Transaksi](screenshots/transaksi.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Login](screenshots/login.png) | ![Transaksi](screenshots/transaksi.png) |
 
 _(Pastikan Anda sudah memindahkan file gambar Anda ke folder `screenshots`)_
 
