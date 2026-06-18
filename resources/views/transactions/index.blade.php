@@ -67,6 +67,7 @@
                             <th class="py-2.5 px-4 text-sm font-bold uppercase text-gray-100">Status
                                 Kerja</th>
                             <th class="py-2.5 px-4 text-sm font-bold uppercase text-gray-100">Info Waktu</th>
+                            <th class="py-2.5 px-4 text-sm font-bold uppercase text-gray-100">Waktu Diambil</th>
                             <th class="py-2.5 px-4 text-sm font-bold uppercase text-gray-100 text-center">
                                 Atur Status</th>
                             <th class="py-2.5 px-4 text-sm font-bold uppercase text-gray-100 text-center">Aksi</th>
@@ -145,6 +146,21 @@
                                             </div>
                                         @else
                                             <div class="text-xs text-gray-400 italic">Belum selesai</div>
+                                        @endif
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-sm">
+                                    <div class="space-y-1">
+
+                                        @if ($trx->taken_at)
+                                            <div class="text-green-600 font-semibold">
+                                                {{ $trx->taken_at->format('d/m/Y') }}
+                                            </div>
+                                            <div class="text-xs text-gray-500">
+                                                {{ $trx->taken_at->format('H:i') }}
+                                            </div>
+                                        @else
+                                            <span class="text-gray-400 italic">Belum diambil</span>
                                         @endif
                                     </div>
                                 </td>

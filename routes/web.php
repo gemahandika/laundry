@@ -21,6 +21,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 Route::resource('aromas', App\Http\Controllers\AromaController::class);
+Route::post('/transactions/{id}/mark-as-taken', [TransactionController::class, 'markAsTaken'])->name('transactions.mark-as-taken');
 
 // =========================================================================
 // GOLONGAN 1: SEMUA USER YANG SUDAH LOGIN (ADMIN & KASIR)

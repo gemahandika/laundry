@@ -213,17 +213,26 @@ class TransactionController extends Controller
 
         $transaction = Transaction::find($id);
 
-        // Logic: Jika status diubah ke 'selesai', isi finished_at dengan waktu saat ini
         $dataUpdate = [
             'status' => $request->status,
             'payment_status' => $request->payment_status,
         ];
 
+        // Logika untuk finished_at
         if ($request->status == 'selesai') {
             $dataUpdate['finished_at'] = Carbon::now();
         } else {
-            // Jika status diubah kembali dari 'selesai' ke status lain, kosongkan jam selesainya
             $dataUpdate['finished_at'] = null;
+        }
+
+        // TAMBAHAN: Logika untuk taken_at
+        if ($request->status == 'diambil') {
+            $dataUpdate['taken_at'] = Carbon::now();
+        } else {
+            // Opsional: Jika status bukan 'diambil', apakah ingin dikosongkan? 
+            // Biasanya diambil bersifat permanen, jadi saya sarankan tidak dikosongkan kecuali perlu.
+            // Jika ingin dikosongkan, hapus komentar baris di bawah:
+            // $dataUpdate['taken_at'] = null; 
         }
 
         $transaction->update($dataUpdate);
@@ -258,5 +267,16 @@ class TransactionController extends Controller
         $transaction->delete();
 
         return redirect()->back()->with('success', 'Transaksi berhasil dihapus.');
+    }
+
+    public function markAsTaken($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $transaction->update([
+            'taken_at' => Carbon::now(), // Mengisi waktu saat tombol ditekan
+            'payment_status' => 'lunas'   // Biasanya diambil berarti sudah lunas
+        ]);
+
+        return back()->with('success', 'Waktu pengambilan berhasil dicatat.');
     }
 }

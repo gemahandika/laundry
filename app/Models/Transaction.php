@@ -22,7 +22,8 @@ use App\Models\TransactionDetail;
     'total_pay',
     'status',
     'payment_status',
-    'notes'
+    'notes',
+    'taken_at'
 ])]
 class Transaction extends Model
 {
@@ -50,4 +51,10 @@ class Transaction extends Model
     {
         return $this->belongsTo(Aroma::class);
     }
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'finished_at' => 'datetime',
+        'taken_at' => 'datetime', // Tambahkan ini agar tidak error lagi
+    ];
 }

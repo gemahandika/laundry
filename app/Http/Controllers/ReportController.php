@@ -112,7 +112,8 @@ class ReportController extends Controller
             'Nama Pelanggan',
             'Start Date',
             'Finished At',
-            'Total QTY',       // Kolom QTY
+            'Taken At',
+            'Total QTY',
             'Subtotal',
             'Discount',
             'Total Pay',
@@ -133,7 +134,8 @@ class ReportController extends Controller
                     $trx->customer ? $trx->customer->name : '-',
                     $trx->start_date ? Carbon::parse($trx->start_date)->format('d/m/Y H:i') : '-',
                     $trx->finished_at ? Carbon::parse($trx->finished_at)->format('d/m/Y H:i') : '-',
-                    $totalQty,             // Nilai QTY yang sudah dijumlahkan
+                    $trx->taken_at ? Carbon::parse($trx->taken_at)->format('d/m/Y H:i') : '-',
+                    $totalQty,
                     $trx->subtotal,
                     $trx->discount,
                     $trx->total_pay,

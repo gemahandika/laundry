@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Tambah aroma_id ke transaksi
         Schema::table('transactions', function (Blueprint $table) {
-            $table->foreignId('aroma_id')->nullable()->constrained('aromas')->onDelete('set null');
+            $table->timestamp('taken_at')->nullable(); // Menambah kolom waktu ambil
         });
+    }
 
-        // Tambah is_member ke pelanggan
-        Schema::table('customers', function (Blueprint $table) {
-            $table->boolean('is_member')->default(false);
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('transactions', function (Blueprint $table) {
+            //
         });
     }
 };
