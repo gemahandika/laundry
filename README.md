@@ -1,4 +1,4 @@
-# So Fresh Laundry - Sistem Informasi Manajemen Laundry
+# Sistem Informasi Manajemen Laundry
 
 Aplikasi sistem informasi berbasis web yang dirancang untuk mengelola operasional laundry secara efisien. Aplikasi ini telah diimplementasikan dalam lingkungan bisnis nyata dengan nilai jual Rp 3.500.000.
 
@@ -28,10 +28,4 @@ _(Pastikan Anda sudah memindahkan file gambar Anda ke folder `screenshots`)_
 
 ---
 
-## Tentang Laravel
 
-_Di bawah ini adalah penjelasan framework yang saya gunakan untuk membangun sistem ini:_
-
-Laravel adalah framework aplikasi web dengan sintaks yang ekspresif dan elegan. Saya menggunakan Laravel karena strukturnya yang rapi, memudahkan dalam manajemen _routing_, _database ORM (Eloquent)_, dan pengolahan data yang kompleks untuk aplikasi laundry ini.
-
-_(Anda bisa membiarkan sisa teks asli dari Laravel di bawah sini jika ingin, atau menghapusnya jika dirasa terlalu panjang)_
